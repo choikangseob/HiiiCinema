@@ -41,7 +41,7 @@ public class chartController {
 		  else { 
 		  int customer_id =Integer.parseInt(cust_id);
 		  }
-
+ 
 		chartPutCommentDTO movieReview = cpcdao.selectMovieReview(userId, id, cust_id);
 
 		session.setAttribute("dataId", id);
