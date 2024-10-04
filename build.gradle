@@ -25,22 +25,39 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
-	annotationProcessor 'org.projectlombok:lombok'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation group:'org.glassfish.web', name:'jakarta.servlet.jsp.jstl', version:'2.0.0'
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'org.json:json:20210307'
-    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    // Spring Boot 웹 스타터 (JSP 지원 포함)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // MyBatis Starter
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    
+    // Lombok (개발 편의성)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // Spring Boot 개발 도구
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    
+    // MySQL 커넥터
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    
+    // JSTL (JSP에서 EL을 사용할 수 있게 해줌)
+    implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
+
+    // Tomcat Jasper (JSP 컴파일을 위한 라이브러리)
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    
+    // JSON 처리
+    implementation 'org.json:json:20210307'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-     implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // 테스트용 의존성
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    
+    // Jakarta Servlet API (Spring Boot 3.x의 Jakarta 전환에 따라 변경됨)
+    providedRuntime 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 }
 
 tasks.named('test') {
